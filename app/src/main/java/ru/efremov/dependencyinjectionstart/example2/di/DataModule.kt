@@ -1,7 +1,9 @@
 package ru.efremov.dependencyinjectionstart.example2.di
 
+import android.content.Context
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import ru.efremov.dependencyinjectionstart.example2.data.datasource.ExampleLocalDataSource
 import ru.efremov.dependencyinjectionstart.example2.data.datasource.ExampleLocalDataSourceImpl
 import ru.efremov.dependencyinjectionstart.example2.data.datasource.ExampleRemoteDataSource
@@ -11,8 +13,8 @@ import ru.efremov.dependencyinjectionstart.example2.data.datasource.ExampleRemot
 interface DataModule {
 
     @Binds
-    fun bindLocalDataSource(impl: ExampleLocalDataSourceImpl): ExampleLocalDataSource
+    fun provideLocalDataSource(impl: ExampleLocalDataSourceImpl): ExampleLocalDataSource
 
     @Binds
-    fun bindRemoteDataSource(impl: ExampleRemoteDataSourceImpl): ExampleRemoteDataSource
+    fun provideRemoteDataSource(impl: ExampleRemoteDataSourceImpl): ExampleRemoteDataSource
 }
