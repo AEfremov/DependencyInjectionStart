@@ -8,7 +8,7 @@ import ru.efremov.dependencyinjectionstart.example2.presentation.ExampleViewMode
 import ru.efremov.dependencyinjectionstart.example2.presentation.MainActivity
 import javax.inject.Singleton
 
-@Singleton
+@ApplicationScope
 @Component(modules = [
     DataModule::class,
     DomainModule::class

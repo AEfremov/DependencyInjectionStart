@@ -10,5 +10,5 @@ import ru.efremov.dependencyinjectionstart.example2.domain.ExampleRepository
 interface DomainModule {
 
     @Binds
-    fun provideRepository(impl: ExampleRepositoryImpl): ExampleRepository
+    fun bindRepository(impl: ExampleRepositoryImpl): ExampleRepository
 }
