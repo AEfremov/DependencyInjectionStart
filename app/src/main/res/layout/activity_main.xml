@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".example2.presentation.MainActivity">
 
+    <TextView
+        android:id="@+id/tv_btn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="sfsdfsf"
+        android:gravity="center" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

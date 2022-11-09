@@ -1,8 +1,6 @@
 package ru.efremov.dependencyinjectionstart.example2.presentation
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import ru.efremov.dependencyinjectionstart.R
@@ -10,7 +8,7 @@ import ru.efremov.dependencyinjectionstart.example2.ExampleApp
 import ru.efremov.dependencyinjectionstart.example2.data.database.ExampleDatabase
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity2 : AppCompatActivity() {
 
     private val component by lazy {
         (application as ExampleApp).component
@@ -37,11 +35,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         viewModel.method()
-        viewModel2.method()
 
-        findViewById<TextView>(R.id.tv_btn).setOnClickListener {
-            val intent = Intent(this, MainActivity2::class.java)
-            startActivity(intent)
-        }
+        viewModel2.method()
     }
 }

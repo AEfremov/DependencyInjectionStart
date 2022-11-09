@@ -6,6 +6,7 @@ import dagger.Component
 import ru.efremov.dependencyinjectionstart.example2.data.database.ExampleDatabase
 import ru.efremov.dependencyinjectionstart.example2.presentation.ExampleViewModel
 import ru.efremov.dependencyinjectionstart.example2.presentation.MainActivity
+import ru.efremov.dependencyinjectionstart.example2.presentation.MainActivity2
 import javax.inject.Singleton
 
 @ApplicationScope
@@ -21,6 +22,7 @@ interface ApplicationComponent {
     fun getDatabase(): ExampleDatabase
 
     fun inject(activity: MainActivity)
+    fun inject(activity: MainActivity2)
 
 //    @Component.Builder
 //    interface ApplicationComponentBuilder {
