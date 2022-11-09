@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity() {
 
     private val component by lazy {
         (application as ExampleApp).component
+            .activityComponentFactory()
+            .create("MY_ID")
     }
 
     @Inject
@@ -25,10 +27,6 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel2: ExampleViewModel2 by lazy {
         ViewModelProvider(this, viewModelFactory)[ExampleViewModel2::class.java]
-    }
-
-    private val database: ExampleDatabase by lazy {
-        component.getDatabase()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

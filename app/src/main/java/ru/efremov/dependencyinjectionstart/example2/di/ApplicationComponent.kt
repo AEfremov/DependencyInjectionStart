@@ -12,17 +12,11 @@ import javax.inject.Singleton
 @ApplicationScope
 @Component(modules = [
     DataModule::class,
-    DomainModule::class,
-    ViewModelModule::class
+    DomainModule::class
 ])
 interface ApplicationComponent {
 
-    fun getViewModel(): ExampleViewModel
-
-    fun getDatabase(): ExampleDatabase
-
-    fun inject(activity: MainActivity)
-    fun inject(activity: MainActivity2)
+    fun activityComponentFactory(): ActivityComponent.Factory
 
 //    @Component.Builder
 //    interface ApplicationComponentBuilder {
