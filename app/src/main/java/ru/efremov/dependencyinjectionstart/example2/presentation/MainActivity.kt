@@ -1,12 +1,11 @@
 package ru.efremov.dependencyinjectionstart.example2.presentation
 
-import android.app.Application
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import ru.efremov.dependencyinjectionstart.R
 import ru.efremov.dependencyinjectionstart.example2.ExampleApp
 import ru.efremov.dependencyinjectionstart.example2.data.database.ExampleDatabase
-import ru.efremov.dependencyinjectionstart.example2.di.DaggerApplicationComponent
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -16,12 +15,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     @Inject
-    lateinit var viewModel: ExampleViewModel
+    lateinit var viewModelFactory: ViewModelFactory
 
-//    private val component by lazy {
-//        DaggerApplicationComponent.factory()
-//            .create(application, System.currentTimeMillis())
-//    }
+    private val viewModel: ExampleViewModel by lazy {
+        ViewModelProvider(this, viewModelFactory)[ExampleViewModel::class.java]
+    }
+
+    private val viewModel2: ExampleViewModel2 by lazy {
+        ViewModelProvider(this, viewModelFactory)[ExampleViewModel2::class.java]
+    }
 
     private val database: ExampleDatabase by lazy {
         component.getDatabase()
@@ -33,5 +35,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         viewModel.method()
+
+        viewModel2.method()
     }
 }
